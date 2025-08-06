@@ -27,23 +27,23 @@ hide:
 
 <div class="grid cards" style="grid-template-columns: repeat(2, 1fr); background: var(--md-default-bg-color);" markdown>
 
--   :material-github:{ .lg .right } __PFE_25.1_8001_I__
+-   :material-github:{ .lg .right } __PFE_25.2_8002_I__
 
     ---
 
     Lorem Ipsum, dolor sit amet consectetur adipiscing elit,    
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-    [:octicons-arrow-right-24: Repositório](https://github.com/Projetos-de-Extensao/PFE_25.1_8001_I)
+    [:octicons-arrow-right-24: Repositório](https://github.com/Projetos-de-Extensao/PFE_25.2_8002_I)
 
--   :material-github:{ .lg .right } __PFE_25.1_8001_II__
+-   :material-github:{ .lg .right } __PFE_25.2_8002_II__
 
     ---
 
     Lorem Ipsum, dolor sit amet consectetur adipiscing elit,    
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-    [:octicons-arrow-right-24: Repositório](https://github.com/Projetos-de-Extensao/PFE_25.1_8001_II)
+    [:octicons-arrow-right-24: Repositório](https://github.com/Projetos-de-Extensao/PFE_25.2_8002_II)
 
 </div>
 
