@@ -245,7 +245,7 @@ MINHA LISTA DE TAREFAS
 
 Você deve tentar fazer isso sozinho para entender como funciona. Como dica, adicione o arquivo e, em seguida, confirme com uma mensagem (consulte a seção anterior para obter detalhes de como fazer isso).
 
-Depois de confirmar seu branchtest, volte para o branchmainexecutando este comando: git checkout main.
+Depois de confirmar seu branchtest, volte para o branch main executando este comando: git checkout main.
 
 Você notou que não adicionamos o -b ? Isso ocorre porque não estamos criando um outro branch, mas mudando para um branch existente. Você pode verificar todos os branches que existem em seu repositório executando o comando gitbranch ** **
 
