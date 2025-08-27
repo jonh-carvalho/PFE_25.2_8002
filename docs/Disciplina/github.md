@@ -141,7 +141,7 @@ Agora, nosso arquivo está no estado preparado. Você não receberá uma respost
 
 ### Como confirmar (commit) arquivos no Git
 
-O próximo estado de um arquivo após o estado preparado é o estado confirmado. Para confirmar nosso arquivo, usamos o comando gitcommit -m "firstcommit"
+O próximo estado de um arquivo após o estado preparado é o estado confirmado. Para confirmar nosso arquivo, usamos o comando **git commit -m "firstcommit"**
 
 A primeira parte do comando gitcommit diz ao Git que todos os arquivos preparados estão prontos para serem confirmados. Então, é hora de tirar um instantâneo. A segunda parte, -m "firstcommit"**, é a **mensagem de confirmação. -m é uma abreviação de mensagem enquanto o texto entre aspas é a mensagem de confirmação (que pode ser a mensagem que você quiser e no idioma que quiser).
 
@@ -161,7 +161,7 @@ gitbranch** -M main**
 git push -u origin main** **
 ```
 
-O primeiro comando, git remote add origin[https://github.com/ihechikara/git-and-github-tutorial.git](https://github.com/ihechikara/git-and-github-tutorial.git), cria uma conexão entre seu repositório local e o repositório remoto no GitHub.** **
+O primeiro comando, git remote add origin [https://github.com/ihechikara/git-and-github-tutorial.git](https://github.com/ihechikara/git-and-github-tutorial.git), cria uma conexão entre seu repositório local e o repositório remoto no GitHub.
 
 O URL do seu projeto remoto deve ser totalmente diferente do anterior. Portanto, para acompanhar, certifique-se de seguir as etapas e trabalhar com seu próprio repositório remoto. Normalmente, você não receberá uma resposta após executar este comando, mas certifique-se de ter uma conexão com a internet.
 
@@ -195,7 +195,7 @@ Depois de fazer alterações no arquivo, ele foi movido para o estado modificado
 
 Agora vamos adicionar (preparar) este arquivo e, em seguida, confirmá-lo e enviá-lo. Isto é igual ao que fizemos na última seção.
 
-Primeiro, adicionamos o arquivo usando gitadd ., que adiciona todos os arquivos na pasta (um único arquivo, no nosso caso). Em seguida, confirmamos o arquivo executando **gitcommit -m "added new task"** (a mensagem significa "nova tarefa adicionada") seguido de **git push -u originmain**
+Primeiro, adicionamos o arquivo usando gitadd ., que adiciona todos os arquivos na pasta (um único arquivo, no nosso caso). Em seguida, confirmamos o arquivo executando **git commit -m "added new task"** (a mensagem significa "nova tarefa adicionada") seguido de **git push -u origin main**
 
 Essas são as três etapas para enviar seus arquivos modificados para o GitHub. Você adiciona, confirma e, em seguida, envia. Espero que agora você entenda os estágios do arquivo e os comandos associados a eles.
 
@@ -249,7 +249,7 @@ Depois de confirmar seu branchtest, volte para o branchmainexecutando este coman
 
 Você notou que não adicionamos o -b ? Isso ocorre porque não estamos criando um outro branch, mas mudando para um branch existente. Você pode verificar todos os branches que existem em seu repositório executando o comando gitbranch ** **
 
-Agora, podemos mesclar as alterações que fizemos no branchtestno branchmainexecutando git merge test.** Neste ponto, você verá todas as alterações feitas no branchtestrefletidas no branchmain. 
+Agora, podemos mesclar as alterações que fizemos no branch test no branch main executando **git merge test.** Neste ponto, você verá todas as alterações feitas no branchtestrefletidas no branchmain. 
 
 ![Screenshot--100-]()git** merge**
 
@@ -257,9 +257,9 @@ Se você continuar a enviar seu repositório para o GitHub, verá que o branchte
 
 ### **Como extrair um repositório no Git **
 
-Fazer pullno Git significa clonar o estado atual de um repositório remoto em seu computador/repositório. Isso é útil quando você deseja trabalhar em seu repositório de um computador diferente ou quando está contribuindo para um projeto de código aberto on-line.
+Fazer pull no Git significa clonar o estado atual de um repositório remoto em seu computador/repositório. Isso é útil quando você deseja trabalhar em seu repositório de um computador diferente ou quando está contribuindo para um projeto de código aberto on-line.
 
-Para testar isso, não se preocupe em mudar para um novo computador. Basta executar cd .. para sair do diretório atual e voltar uma etapa. No meu caso, naveguei de volta para a minha área de trabalho.** **
+Para testar isso, não se preocupe em mudar para um novo computador. Basta executar cd.. para sair do diretório atual e voltar uma etapa. No meu caso, naveguei de volta para a minha área de trabalho.
 
 Vá para o GitHub e, na página principal do seu repositório, você verá um botão verde que diz "Code". Ao clicar no botão, você deverá ver algumas opções em um menu suspenso. Vá em frente e copie o URL no formato HTTPS.
 
@@ -277,7 +277,7 @@ Você deve saber que esses não são todos os comandos que existem no Git – po
 
 ## **Links**
 
-- git - guia prático** **
+- **git - guia prático**
 
 [https://rogerdudler.github.io/git-guide/index.pt_BR.html](https://rogerdudler.github.io/git-guide/index.pt_BR.html)
 
@@ -285,32 +285,30 @@ Você deve saber que esses não são todos os comandos que existem no Git – po
 
 [https://git-scm.com/book/pt-br/v2](https://git-scm.com/book/pt-br/v2)
 
-- Interactive, Visual Git
+- **Interactive, Visual Git**
 
 [https://the-turing-way.netlify.app/reproducible-research/vcs/vcs-git-interactive](https://the-turing-way.netlify.app/reproducible-research/vcs/vcs-git-interactive)
 
-- LearnGitBranching!** **
+- **LearnGitBranching!**
 
 [https://learngitbranching.js.org/?locale=pt_BR](https://learngitbranching.js.org/?locale=pt_BR)
 
-- UnderstandingGitthroughimages** **
+- **UnderstandingGitthroughimages**
 
 [https://dev.to/nopenoshishi/understanding-git-through-images-4an1](https://dev.to/nopenoshishi/understanding-git-through-images-4an1)
 
-- A Visual GitReference
+- **A Visual GitReference**
 
 [https://marklodato.github.io/visual-git-guide/index-en.html](https://marklodato.github.io/visual-git-guide/index-en.html)
 
-- A Grip OnGit
+- **A Grip OnGit**
 
 [https://agripongit.vincenttunru.com/](https://agripongit.vincenttunru.com/)
 
-- VisualizingGitConceptswith** D3**
+- **Visualizing Git Concepts with D3**
 
 [https://onlywei.github.io/explain-git-with-d3/#rebase](https://onlywei.github.io/explain-git-with-d3/#rebase)
 
-- Como criar um repositório
+- **Como criar um repositório**
 
-[https://www.atlassian.com/br/git/tutorials/setting-up-a-repository](https://www.atlassian.com/br/git/tutorials/setting-up-a-repository)
-
----
+[Setting up a repository](https://www.atlassian.com/br/git/tutorials/setting-up-a-repository)
