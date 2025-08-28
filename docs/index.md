@@ -5,34 +5,13 @@ hide:
     - template: home.html
 ---
 
-
--    :material-github:{ .lg .right } __Projeto Front-End__
-    
-    ---
-    
-    Disciplina que apresenta os passos para a construção de Projeto Front-End.
-    
-    **Linguagens**: HTML, CSS e Javascript
-    
-    **Tecnologias**:
-    
-    * Visual Studio Code
-    * Github
-    * Git
-    * Markdown
-    * MkDocs
-    * GitHub Pages
-  
-### Grupos
-
-<div class="grid cards" style="grid-template-columns: repeat(2, 1fr); background: var(--md-default-bg-color);" markdown>
+<div class="grid cards" style="grid-template-columns: repeat(3, 1fr); background: var(--md-default-bg-color);" markdown>
 
 -   :material-github:{ .lg .right } __PFE_25.2_8002_I__
 
     ---
 
-    Lorem Ipsum, dolor sit amet consectetur adipiscing elit,    
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Bernardo Brandão, Iago Viana, Pedro dos Santos, Bruno Norton, Gabriel Pereira
 
     [:octicons-arrow-right-24: Repositório](https://github.com/Projetos-de-Extensao/PFE_25.2_8002_I)
 
@@ -40,12 +19,49 @@ hide:
 
     ---
 
-    Lorem Ipsum, dolor sit amet consectetur adipiscing elit,    
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Maria Eduarda, Giovana Perrone, Julia Valente, Rafael Tomaz, Mateus Alvarenga
 
     [:octicons-arrow-right-24: Repositório](https://github.com/Projetos-de-Extensao/PFE_25.2_8002_II)
 
+-   :material-github:{ .lg .right } __PFE_25.2_8002_III__
+
+    ---
+
+    Nicholas Vasconcelos, Mateus Oliveira, João Marcio, Victor Robson, Lucas Martins
+
+    [:octicons-arrow-right-24: Repositório](https://github.com/Projetos-de-Extensao/PFE_25.2_8002_III)
+
+-   :material-github:{ .lg .right } __PFE_25.2_8002_IV__
+
+    ---
+
+    Arthur Maurity, Lucas Jesus, Ricardo Lima, Bernardo Miller, Gianluca Leonardi
+
+    [:octicons-arrow-right-24: Repositório](https://github.com/Projetos-de-Extensao/PFE_25.2_8002_IV)
+
+-   :material-github:{ .lg .right } __PFE_25.2_8002_V__
+
+    ---
+
+    Marcos Paulo, Micael, Israel, João Gabriel Oliveiras, Caio Ximenes
+
+    [:octicons-arrow-right-24: Repositório](https://github.com/Projetos-de-Extensao/PFE_25.2_8002_V)
+
 </div>
+
+-    :material-github:{ .lg .right } __Projeto Front-End__
+    
+    ---
+    
+    Disciplina que apresenta os passos para a construção de Projeto Front-End.
+    **Linguagens**: HTML, CSS e Javascript
+    **Tecnologias**:
+    
+    |  Tecnologias   | |
+    | --- | ---|
+    | Visual Studio Code| Markdown |
+    | Github | MkDocs |
+    | Git | GitHub Pages |
 
 
 
