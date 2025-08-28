@@ -4,7 +4,7 @@
 
 ---
 
-[**Git** e **GitHub**](https://liveestacio-my.sharepoint.com/:w:/g/personal/00661711722_professores_ibmec_edu_br/EayhNsfMEiZLkeF1G0FVcoUBAop-ccTZz_xc_sCZC5UP3A?e=IDYIcC) são duas tecnologias que todo desenvolvedor deve aprender, independentemente de sua área. Se você é um desenvolvedor iniciante, pode pensar que esses dois termos significam a mesma coisa, mas são diferentes.
+São duas tecnologias que todo desenvolvedor deve aprender, independentemente de sua área. Se você é um desenvolvedor iniciante, pode pensar que esses dois termos significam a mesma coisa, mas são diferentes.
 
 Este roteiro ajudará você a entender o que é Git e controle de versão, os comandos básicos do Git que você precisa conhecer, como você pode usar seus recursos para aumentar a eficiência do seu trabalho e como estender esses recursos usando o GitHub.
 
@@ -56,7 +56,7 @@ Após terminarmos de instalar e configurar o Git, agora é hora de criar nosso p
 
 Criamos uma pasta, no desktop, chamada Git and GitHub tutorial. Usando a linha de comando, navegue até o local do seu novo projeto. Para execute os seguintes comandos:
 
-```cd
+```bash
 cd desktop
 cd git and github tutorial
 ```
@@ -73,10 +73,9 @@ Um repositório é apenas outra maneira de definir um projeto que está sendo mo
 
 ### Arquivos de projeto no **Git**
 
-Criamos apenas um arquivo chamado todo.txt. Essa é a aparência do arquivo:** **
+Criamos apenas um arquivo chamado todo.md. Essa é a aparência do arquivo:
 
-**
-    MINHA LISTA DE TAREFAS**
+MINHA LISTA DE TAREFAS
 
 1. Escrever um artigo.
 2. Programar.
@@ -87,47 +86,21 @@ Criamos apenas um arquivo chamado todo.txt. Essa é a aparência do arquivo:** *
 
 ---
 
-    Antes de continuarmos aprendendo outros comandos do Git, vamos falar sobre o Github.
+### Adicionar e confirmar arquivos
 
-## O que é o GitHub?
+Antes de "adicionar" e "confirmar" nossos arquivos, você precisa entender os estágios de um arquivo que está sendo rastreado pelo Git.
 
-O GitHub é um serviço de hospedagem on-line para repositórios do Git. Imagine trabalhar em um projeto em casa e, enquanto estiver fora – talvez na casa de um amigo, de repente – se dar conta da solução para um erro de código que o deixou inquieto por dias.
+* **Estado preparado (staged)**
 
-Você não pode fazer essas alterações porque seu PC não está com você. Se, contudo, você tiver seu projeto hospedado no GitHub, poderá acessar e baixar esse projeto com um comando em qualquer computador ao qual tenha acesso. Em seguida, você pode fazer suas alterações e enviar a versão mais recente de volta ao GitHub.
+Um arquivo no estado **preparado** significa que está pronto para ser confirmado. Nesse estado, todas as alterações necessárias foram feitas. Portanto, o próximo passo é mover o arquivo para o estado de confirmação.
 
-Em resumo, o GitHub permite que você armazene seu repositório em sua plataforma. Outro recurso incrível que vem com o GitHub é a capacidade de colaborar com outros desenvolvedores de qualquer local.
-
-Agora que criamos e inicializamos nosso projeto localmente, vamos enviá-lo para o GitHub.
-
-Se você é iniciante, encontrará alguns termos novos como push, commit, adde assim por diante – mas não se deixe assustar com eles. Com alguma prática, você será capaz de lembrar desses termos e do que eles fazem.
-
-## *Como enviar um repositório para o **Github***
-
-Dividimos esta seção em etapas para ajudá-lo a entender o processo com mais clareza.
-
-**Passo** 1 – Crie uma conta no GitHub
-
-    Para poder usar o GitHub, terá de criar uma conta primeiramente. Você pode fazer isso no[site da web](https://github.com/) do GitHub.
-
-**Passo** 2 – Crie um repositório
-
-    Você pode clicar no símbolo + no canto superior direito da página e escolher "New repository" (Novo repositório). Dê um nome ao seu repositório, role para baixo e clique no botão "Createrepository"  (Criar repositório).
-
-**Passo** 3 – Adicionar e confirmar arquivos
-
-    Antes de "adicionar" e "confirmar" nossos arquivos, você precisa entender os estágios de um arquivo que está sendo rastreado peloGit.
-
-**Estado confirmado (committed)**
+* **Estado confirmado (committed)**
 
 Um arquivo está no estado **confirmado** quando todas as alterações feitas no arquivo foram salvas no repositório local. Os arquivos no estágio confirmado são arquivos prontos para serem enviados para o repositório remoto (no GitHub).
 
-**Estado modificado (modified)**
+* **Estado modificado (modified)**
 
-Um arquivo no estado **modificado **tem algumas alterações feitas nele, mas ainda não foi salvo. Isso significa que o estado do arquivo foi alterado de seu estado anterior no estado **confirmado**.
-
-**Estado preparado (staged)**
-
-Um arquivo no estado **preparado** significa que está pronto para ser confirmado. Nesse estado, todas as alterações necessárias foram feitas. Portanto, o próximo passo é mover o arquivo para o estado de confirmação.
+Um arquivo no estado **modificado** tem algumas alterações feitas nele, mas ainda não foi salvo. Isso significa que o estado do arquivo foi alterado de seu estado anterior no estado **confirmado**.
 
 Você pode entender isso melhor imaginando o Git como uma câmera. A câmera só tirará um instantâneo quando o arquivo atingir o estado de confirmação. Após este estado, a câmera começa a comparar as alterações feitas no mesmo arquivo com o último instantâneo (este é o estado modificado). Quando as alterações necessárias forem feitas, o arquivo é preparado e movido para o estado de confirmação para um novo instantâneo.
 
@@ -135,41 +108,31 @@ Isso pode ser muita informação para absorver no momento, mas não desanime –
 
 ### Como adicionar arquivos ao Git
 
-Quando inicializamos nosso projeto, o arquivo não estava sendo rastreado pelo Git. Para isso, usamos o comando gitadd .** O ponto que vem depois de add representa todos os arquivos que existem no repositório. Se você quiser adicionar um arquivo específico (por exemplo, um arquivo chamado about.txt), use gitadd** about.txt**.**
+Quando inicializamos nosso projeto, o arquivo não estava sendo rastreado pelo Git. Para isso, usamos o comando **git add .** O ponto que vem depois de add representa todos os arquivos que existem no repositório. Se você quiser adicionar um arquivo específico (por exemplo, um arquivo chamado about.txt), use **git add about.txt**.
 
-Agora, nosso arquivo está no estado preparado. Você não receberá uma resposta após este comando, mas, para saber em que estado seu arquivo está, você pode executar o comando git status. ** **
+```bash
+git add .
+```
+
+Agora, nosso arquivo está no estado preparado. Você não receberá uma resposta após este comando, mas, para saber em que estado seu arquivo está, você pode executar o comando **git status**.
+
+```bash
+git status
+```
 
 ### Como confirmar (commit) arquivos no Git
 
-O próximo estado de um arquivo após o estado preparado é o estado confirmado. Para confirmar nosso arquivo, usamos o comando **git commit -m "firstcommit"**
+O próximo estado de um arquivo após o estado preparado é o estado confirmado. Para confirmar nosso arquivo, usamos o comando **git commit -m "first commit"**
 
-A primeira parte do comando gitcommit diz ao Git que todos os arquivos preparados estão prontos para serem confirmados. Então, é hora de tirar um instantâneo. A segunda parte, -m "firstcommit"**, é a **mensagem de confirmação. -m é uma abreviação de mensagem enquanto o texto entre aspas é a mensagem de confirmação (que pode ser a mensagem que você quiser e no idioma que quiser).
+```bash
+git commit -m "first commit"
+```
+
+A primeira parte do comando gitcommit diz ao Git que todos os arquivos preparados estão prontos para serem confirmados. Então, é hora de tirar um instantâneo. A segunda parte, **-m "firstcommit"**, é a **mensagem** de confirmação. -m é uma abreviação de mensagem enquanto o texto entre aspas é a mensagem de confirmação (que pode ser a mensagem que você quiser e no idioma que quiser).
 
 Agora, nosso arquivo está no estado confirmado.
 
-Passo 4 – Envie o repositório para o GitHub** **
-
-Depois de criar o repositório, você deve ser redirecionado para uma página que informa como criar um repositório localmente ou enviar um já existente.
-
-No nosso caso, o projeto já existe localmente, então usaremos comandos na seção "… ou enviar um repositório existente a partir da linha de comando". Estes são os comandos:
-
-```
-git remote add origin** https://github.com/ihechikara/git-and-github-tutorial.git**
-
-gitbranch** -M main**
-
-git push -u origin main** **
-```
-
-O primeiro comando, git remote add origin [https://github.com/ihechikara/git-and-github-tutorial.git](https://github.com/ihechikara/git-and-github-tutorial.git), cria uma conexão entre seu repositório local e o repositório remoto no GitHub.
-
-O URL do seu projeto remoto deve ser totalmente diferente do anterior. Portanto, para acompanhar, certifique-se de seguir as etapas e trabalhar com seu próprio repositório remoto. Normalmente, você não receberá uma resposta após executar este comando, mas certifique-se de ter uma conexão com a internet.
-
-O segundo comando, gitbranch -M main, altera o nome do seu branch principal para "main". O branch padrão pode ser criada como "master", mas "main" é o nome padrão para este repositório agora. Geralmente, não há resposta aqui.** **
-
-O último comando, **git push -u origin main**, envia seu repositório do seu dispositivo local para o GitHub. 
-
-Para ajudá-lo a aprofundar sua compreensão dos estágios do arquivo, farei alterações no arquivo e, em seguida, enviarei a nova versão para o GitHub.
+Para ajudá-lo a aprofundar sua compreensão dos estágios do arquivo, farei alterações no arquivo.
 
 Lembre-se de que nosso arquivo agora está no estado confirmado. Vamos fazer alterações no arquivo e anotar os estados.
 
@@ -184,9 +147,7 @@ MINHA LISTA DE TAREFAS
 3. Estudar pelos livros.
 4. Chegar nas aulas a tempo.
 5. Visitar minha tia.
-
-**6. Me candidatar a trabalhos remotos. **
-
+6. Me candidatar a trabalhos remotos.
 7. Praticar programação
 
 Depois de adicionar a nova tarefa, execute o comando git status. Isto é o que você deverá ver:
@@ -195,9 +156,7 @@ Depois de fazer alterações no arquivo, ele foi movido para o estado modificado
 
 Agora vamos adicionar (preparar) este arquivo e, em seguida, confirmá-lo e enviá-lo. Isto é igual ao que fizemos na última seção.
 
-Primeiro, adicionamos o arquivo usando gitadd ., que adiciona todos os arquivos na pasta (um único arquivo, no nosso caso). Em seguida, confirmamos o arquivo executando **git commit -m "added new task"** (a mensagem significa "nova tarefa adicionada") seguido de **git push -u origin main**
-
-Essas são as três etapas para enviar seus arquivos modificados para o GitHub. Você adiciona, confirma e, em seguida, envia. Espero que agora você entenda os estágios do arquivo e os comandos associados a eles.
+Primeiro, adicionamos o arquivo usando gitadd ., que adiciona todos os arquivos na pasta (um único arquivo, no nosso caso). Em seguida, confirmamos o arquivo executando **git commit -m "added new task"** (a mensagem significa "nova tarefa adicionada")
 
 ### **Como usar branches no Git **
 
@@ -252,6 +211,54 @@ Você notou que não adicionamos o -b ? Isso ocorre porque não estamos criando 
 Agora, podemos mesclar as alterações que fizemos no branch test no branch main executando **git merge test.** Neste ponto, você verá todas as alterações feitas no branchtestrefletidas no branchmain. 
 
 ![Screenshot--100-]()git** merge**
+
+## O que é o GitHub?
+
+O GitHub é um serviço de hospedagem on-line para repositórios do Git. Imagine trabalhar em um projeto em casa e, enquanto estiver fora – talvez na casa de um amigo, de repente – se dar conta da solução para um erro de código que o deixou inquieto por dias.
+
+Você não pode fazer essas alterações porque seu PC não está com você. Se, contudo, você tiver seu projeto hospedado no GitHub, poderá acessar e baixar esse projeto com um comando em qualquer computador ao qual tenha acesso. Em seguida, você pode fazer suas alterações e enviar a versão mais recente de volta ao GitHub.
+
+Em resumo, o GitHub permite que você armazene seu repositório em sua plataforma. Outro recurso incrível que vem com o GitHub é a capacidade de colaborar com outros desenvolvedores de qualquer local.
+
+Agora que criamos e inicializamos nosso projeto localmente, vamos enviá-lo para o GitHub.
+
+Se você é iniciante, encontrará alguns termos novos como push, commit, adde assim por diante – mas não se deixe assustar com eles. Com alguma prática, você será capaz de lembrar desses termos e do que eles fazem.
+
+## *Como enviar um repositório para o **Github***
+
+Dividimos esta seção em etapas para ajudá-lo a entender o processo com mais clareza.
+
+**Passo** 1 – Crie uma conta no GitHub
+
+    Para poder usar o GitHub, terá de criar uma conta primeiramente. Você pode fazer isso no[site da web](https://github.com/) do GitHub.
+
+**Passo** 2 – Crie um repositório
+
+    Você pode clicar no símbolo + no canto superior direito da página e escolher "New repository" (Novo repositório). Dê um nome ao seu repositório, role para baixo e clique no botão "Createrepository"  (Criar repositório).
+
+**Passo** 3 – Envie o repositório para o GitHub
+
+Depois de criar o repositório, você deve ser redirecionado para uma página que informa como criar um repositório localmente ou enviar um já existente.
+
+No nosso caso, o projeto já existe localmente, então usaremos comandos na seção "… ou enviar um repositório existente a partir da linha de comando". Estes são os comandos:
+
+```bash
+git remote add origin https://github.com/ihechikara/git-and-github-tutorial.git
+git branch -M main
+git push -u origin main
+```
+
+O primeiro comando, git remote add origin [https://github.com/ihechikara/git-and-github-tutorial.git](https://github.com/ihechikara/git-and-github-tutorial.git), cria uma conexão entre seu repositório local e o repositório remoto no GitHub.
+
+O URL do seu projeto remoto deve ser totalmente diferente do anterior. Portanto, para acompanhar, certifique-se de seguir as etapas e trabalhar com seu próprio repositório remoto. Normalmente, você não receberá uma resposta após executar este comando, mas certifique-se de ter uma conexão com a internet.
+
+O segundo comando, gitbranch -M main, altera o nome do seu branch principal para "main". O branch padrão pode ser criada como "master", mas "main" é o nome padrão para este repositório agora. Geralmente, não há resposta aqui.
+
+O último comando, **git push -u origin main**, envia seu repositório do seu dispositivo local para o GitHub. 
+
+Essas são as três etapas para enviar seus arquivos modificados para o GitHub. Você adiciona, confirma e, em seguida, envia. Espero que agora você entenda os estágios do arquivo e os comandos associados a eles.
+
+### **Como enviar um repositório existente a partir da linha de comando**
 
 Se você continuar a enviar seu repositório para o GitHub, verá que o branchtest não será enviado. Ele permanecerá apenas em seu repositório local. Se você quiser enviar seu branchtest**, mude para ele usando git checkout test e execute o comando **git push -u origin test**
 
