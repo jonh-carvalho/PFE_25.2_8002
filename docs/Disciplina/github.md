@@ -147,16 +147,35 @@ MINHA LISTA DE TAREFAS
 3. Estudar pelos livros.
 4. Chegar nas aulas a tempo.
 5. Visitar minha tia.
+   
 6. Me candidatar a trabalhos remotos.
 7. Praticar programação
 
 Depois de adicionar a nova tarefa, execute o comando git status. Isto é o que você deverá ver:
 
-Depois de fazer alterações no arquivo, ele foi movido para o estado modificado, mas ainda não está preparado para confirmação. Então, você ainda não pode enviá-lo para o GitHub. O Git não tirou um instantâneo final desse estado atual, pois está apenas comparando as alterações que fizemos agora com o último instantâneo.
+```bash
+git status
+```
 
-Agora vamos adicionar (preparar) este arquivo e, em seguida, confirmá-lo e enviá-lo. Isto é igual ao que fizemos na última seção.
+```bash
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   /todo.md.md
 
-Primeiro, adicionamos o arquivo usando gitadd ., que adiciona todos os arquivos na pasta (um único arquivo, no nosso caso). Em seguida, confirmamos o arquivo executando **git commit -m "added new task"** (a mensagem significa "nova tarefa adicionada")
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+Depois de fazer alterações no arquivo, ele foi movido para o estado modificado, mas ainda não está preparado para confirmação.  O Git não tirou um instantâneo final desse estado atual, pois está apenas comparando as alterações que fizemos agora com o último instantâneo.
+
+Agora vamos adicionar (preparar) este arquivo e, em seguida, confirmá-lo.
+
+Primeiro, adicionamos o arquivo usando **git add .**, que adiciona todos os arquivos na pasta (um único arquivo, no nosso caso). Em seguida, confirmamos o arquivo executando **git commit -m "added new task"** (a mensagem significa "nova tarefa adicionada")
+
+```bash
+git add .
+git commit -m "added new task"
+```
 
 ### **Como usar branches no Git **
 
@@ -164,9 +183,17 @@ Com branches, você pode criar uma cópia de um arquivo no qual gostaria de trab
 
 Neste ponto, quero adicionar mais tarefas à lista, mas ainda não tenho certeza se as quero na minha lista principal. Então, vou criar um outro branch chamado  test para ver como ficaria minha lista com mais tarefas incluídas.
 
-Para criar um outro branch, execute este comando: git checkout -b test.** Vamos dividir isso em partes e explicar.**
+Para criar um outro branch, execute este comando: **git checkout -b test.** Vamos dividir isso em partes e explicar.
 
-checkout diz ao Git que deve mudar para um outro branch. -bdiz ao Git para criar esse outro branch. testé o nome do branch a ser criado e alterado. Aqui está a resposta que você deve obter:
+```bash
+git checkout -b test
+```
+
+O checkout diz ao Git que deve mudar para um outro branch. O -b diz ao Git para criar esse outro branch. test é o nome do branch a ser criado e alterado. Aqui está a resposta que você deve obter:
+
+```bash
+Switched to a new branch 'test'
+```
 
 Agora que criamos um outro branch, é assim que nosso repositório ficará:
 
@@ -175,42 +202,37 @@ Criamos o outro branch a partir do estado do nosso último commit. Vamos agora a
 MINHA LISTA DE TAREFAS
 
 ---
-
-1.Escrever um artigo.** **
-
-2.Programar.
-
-3.Estudar pelos livros.** **
-
-4.Chegar nas aulas a tempo.** **
-
-5.Visitar minha tia.** **
-
-6.Me candidatar a trabalhos remotos.** **
-
-7.Praticar programação
-
-8.Completar a tarefa de estágio.** **
-
-9.Praticar aberturas do xadrez.** **
-
-10.Resolver quebra-cabeçasdo** xadrez**.** **
-
-11.Verificar o cronograma dos testes**.**  ** **
-
+1. Escrever um artigo.
+2. Programar.
+3. Estudar pelos livros.
+4. Chegar nas aulas a tempo.
+5. Visitar minha tia.
+6. Me candidatar a trabalhos remotos.
+7. Praticar programação
+8. Completar a tarefa de estágio.
+9. Praticar aberturas do xadrez.
+10. Resolver quebra-cabeçasdo** xadrez
+11. Verificar o cronograma dos testes.
+    
 ---
 
-  **	Adicionamos quatro novas tarefas. Para mesclar o novo estado com o branchmain**, você deve primeiro preparar e confirmar esse branch. Não entrarei em detalhes sobre o assunto, pois fizemos isso duas vezes na última seção.** **
+Adicionamos quatro novas tarefas. Para mesclar o novo estado com o **branch main**, você deve primeiro preparar e confirmar esse branch. Não entrarei em detalhes sobre o assunto, pois fizemos isso duas vezes na última seção.
 
-Você deve tentar fazer isso sozinho para entender como funciona. Como dica, adicione o arquivo e, em seguida, confirme com uma mensagem (consulte a seção anterior para obter detalhes de como fazer isso).
+Você deve tentar fazer isso sozinho para entender como funciona. Como dica, adicione o arquivo e, em seguida, confirme com uma mensagem.
 
-Depois de confirmar seu branchtest, volte para o branch main executando este comando: git checkout main.
+Depois de confirmar seu branch test, volte para o branch main executando este comando: **git checkout main**.
 
-Você notou que não adicionamos o -b ? Isso ocorre porque não estamos criando um outro branch, mas mudando para um branch existente. Você pode verificar todos os branches que existem em seu repositório executando o comando gitbranch ** **
+```bash
+git checkout main
+```
 
-Agora, podemos mesclar as alterações que fizemos no branch test no branch main executando **git merge test.** Neste ponto, você verá todas as alterações feitas no branchtestrefletidas no branchmain. 
+Você notou que não adicionamos o **-b**? Isso ocorre porque não estamos criando um outro branch, mas mudando para um branch existente. Você pode verificar todos os branches que existem em seu repositório executando o comando **git branch**
 
-![Screenshot--100-]()git** merge**
+Agora, podemos mesclar as alterações que fizemos no branch test no branch main executando **git merge test**. Neste ponto, você verá todas as alterações feitas no branch test refletidas no **branch main**. 
+
+```bash
+git merge test
+```
 
 ## O que é o GitHub?
 
@@ -284,11 +306,11 @@ Você deve saber que esses não são todos os comandos que existem no Git – po
 
 ## **Links**
 
-- **git - guia prático**
+- **Git - guia prático**
 
 [https://rogerdudler.github.io/git-guide/index.pt_BR.html](https://rogerdudler.github.io/git-guide/index.pt_BR.html)
 
-- **Fast-version-control **
+- **Fast-version-control**
 
 [https://git-scm.com/book/pt-br/v2](https://git-scm.com/book/pt-br/v2)
 
