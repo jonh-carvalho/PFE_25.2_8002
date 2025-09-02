@@ -5,7 +5,7 @@ hide:
     - template: home.html
 ---
 
-<div class="grid cards" style="grid-template-columns: repeat(3, 1fr); background: var(--md-default-bg-color);" markdown>
+<div class="grid cards" style="grid-template-columns: repeat(3, 1fr); background: var(--md-primary-bg-color); color: var(--md-primary-fg-color);" markdown>
 
 -   :material-github:{ .lg .right } __PFE_25.2_8002_I__
 
