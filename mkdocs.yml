@@ -11,6 +11,8 @@ nav:
       - Github: Disciplina/github.md
       - Mkdocs: Disciplina/mkdocs.md
       - CodeSpace: Disciplina/codespace.md
+      - Roteiros: 
+          - Design Thinking: Disciplina/Roteiros/design_thinking.md
   - Design Thinking:
       - Pesquisa: Design Thinking/pesquisa.md
       - 5w2h: Design Thinking/5w2h.md
