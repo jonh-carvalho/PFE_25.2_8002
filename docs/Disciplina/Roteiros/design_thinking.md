@@ -2,13 +2,10 @@
 
 Aqui está um exemplo de projeto de **Design Thinking** para resolver um problema comum, seguindo as cinco etapas do processo:
 
----
-
 ### **Projeto: Redesign de um Parque Público para Engajamento Comunitário**  
 
 **Problema:** Um parque local está subutilizado, com reclamações sobre segurança, falta de comodidades e desinteresse da comunidade.
 
----
 
 #### **1. Empatizar**  
 
@@ -19,7 +16,6 @@ Aqui está um exemplo de projeto de **Design Thinking** para resolver um problem
     - Observar o parque em diferentes horários para identificar padrões (bancos vazios, lixo, falta de atividades).  
     - Criar mapas de empatia para documentar frustrações (ex: "Me sinto inseguro à noite" ou "Não há nada para fazer com meus filhos").  
 
----
 
 #### **2. Definir**  
 
@@ -28,7 +24,6 @@ Aqui está um exemplo de projeto de **Design Thinking** para resolver um problem
 - **Declaração do Problema:**  
   *"Como podemos transformar o parque em um espaço seguro, vibrante e inclusivo que incentive a interação e o uso regular pela comunidade?"*  
 
----
 
 #### **3. Idear**  
 
@@ -44,7 +39,6 @@ Aqui está um exemplo de projeto de **Design Thinking** para resolver um problem
     - Melhorar iluminação e câmeras de segurança.  
   - Usar técnicas de priorização (ex: votação com adesivos) para selecionar as melhores ideias.  
 
----
 
 #### **4. Prototipar**  
 **Objetivo:** Criar versões tangíveis e de baixo custo das soluções.  
@@ -53,7 +47,6 @@ Aqui está um exemplo de projeto de **Design Thinking** para resolver um problem
     - "Parque pop-up" com assentos temporários, iluminação e arte.  
     - Calendário de eventos para teste de feedback.  
 
----
 
 #### **5. Testar**  
 **Objetivo:** Coletar feedback e refinar a solução.  
@@ -63,7 +56,6 @@ Aqui está um exemplo de projeto de **Design Thinking** para resolver um problem
     - Usar pesquisas ou quadros de feedback para avaliar o que funciona ou não.  
     - Repetir o processo com base nos resultados (ex: ajustar disposição de assentos, aumentar iluminação).  
 
----
 
 ### **Resultado**  
 Após iterações, o projeto final inclui:  
@@ -73,7 +65,6 @@ Após iterações, o projeto final inclui:
 - Exposições de arte rotativas criadas por artistas locais.  
 - Calendário mensal de eventos (noites de cinema, oficinas).  
 
----
 
 ### **Por que isso funciona?**  
 
