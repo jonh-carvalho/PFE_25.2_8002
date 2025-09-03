@@ -6,8 +6,8 @@
 **__02__ - 13/08/25** | :material-check: Configuração de [Ambiente de Desenvolvimento](https://liveestacio-my.sharepoint.com/:w:/g/personal/00661711722_professores_ibmec_edu_br/EU2fCcJwgTFLvWNyOSUtNWABnf7xw5XPoNRumYUMMtNMwA?e=bIE0li)
 **__03__ - 20/08/25** | :material-check: [Metodologias Ágeis](../assets/Aulas/Scrum.pdf)
 **__04__ - 27/08/25** | [Scrum](../assets/Aulas/Mapa+do+Scrum+Framework+utilizado+nas+aulas.pdf) <br> :material-check: Roteiro Git
-**__05__ - 03/09/25** | :material-check: Apresentação de Tema do Projeto, Principais Funcionalidades do Projeto, App Web Similares <br> :material-check: Site Mkdocs  <br> :material-check: Configuração repositório Github 
-**__06__ - 10/09/25** | :material-check: Design Thinking <br> :material-check: [Brainstorm](../assets/Aulas/O%20processo%20de brainstorm.pdf) <br> :material-check: [Mapa Mental](../assets/Aulas/Mapa%20Mental.pdf)
+**__05__ - 03/09/25** | :material-check: Apresentação de Tema do Projeto, Principais Funcionalidades do Projeto, App Web Similares <br> :material-check: Site Mkdocs  <br> :material-check: Configuração repositório Github <br> :material-check: Design Thinking
+**__06__ - 10/09/25** | :material-check: [Brainstorm](../assets/Aulas/O%20processo%20de brainstorm.pdf) <br> :material-check: [Mapa Mental](../assets/Aulas/Mapa%20Mental.pdf)
 **__06__ - 17/09/25** | :material-check:  
 **__06__ - 24/09/25** | :material-check:
 **__06__ - 31/09/25** | :material-check: AP1 - Apresentação
