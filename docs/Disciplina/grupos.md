@@ -37,3 +37,10 @@ Micael
 Israel iiirto
 João Gabriel Oliveiras
 Caio Ximenes
+
+VI
+Gabriel de Aguiar
+Lucas Vilela
+Lucas Holanda
+Rodrigo Mourão
+João Pedro Sampaio
