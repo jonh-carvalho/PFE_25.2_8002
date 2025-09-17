@@ -1,4 +1,9 @@
-# 06 - **Análise de Tarefas**  
+---
+id: 07_aht
+title: Análise de Tarefas
+---
+
+# 07 - **Análise de Tarefas**  
 
 **Contexto:**  
 
@@ -142,58 +147,59 @@ Aqui está um protótipo de **fluxo de tarefas em formato wireframe** usando **P
 
 ```plantuml
 @startsalt
-{
-  {#white+lightgrey}
-  {* <b>Aplicativo Web - Fluxo de Tarefas (Wireframe)</b> }
+{ Aplicativo Web - Fluxo de Tarefas (Wireframe)
+  .
+  //  Tela: Registrar Pedido  //
+  .
+{+ <b>Registrar Pedido
+  .
+  Buscar cliente    | input:___________ 🔍
+  
+  Lista de produtos:  
+  
+  ( ) Produto A  $10.00
+  ( ) Produto B  $15.00 
+  (✔) Produto C  $20.00
+  
+  Desconto (%):      | input:___5%     [Aplicar]
+  Total: $35.00     | [Finalizar Venda]
+  
+}
+.
+  //  Tela: Consultar Estoque  //
 
-  // --- Tela: Registrar Pedido --- //
-  {T "Registrar Pedido" 
-    [Buscar cliente    | input:___________ 🔍]
-    [Lista de produtos | ( ) Produto A  $10.00]
-    [                  | ( ) Produto B  $15.00]
-    [                  | (✔) Produto C  $20.00]
-    [Desconto (%)      | input:___5%     [Aplicar]]
-    [Total: $35.00     | [Finalizar Venda]]
-  }
-
-  // --- Tela: Consultar Estoque --- //
-  {T "Consultar Estoque"
-    [Filtrar por: | dropdown: Categoria ▼]
-    [Itens no estoque:]
+.
+{+ <b>Consultar Estoque
+    .
+    Filtrar por: | dropdown: Categoria ▼
+    Itens no estoque:
+    .
     {#
-      | Produto | Qtd | Reposição |
-      |---------|-----|-----------|
-      | A       | 50  | 05/04     |
-      | B       | 0   | 10/04     |
-      | C       | 120 | -         |
+      | Produto | Qtd | Reposição 
+      | A | 50 | 05/04 
+      | B       | 0   | 10/04
+      | C       | 120 | -10 
     }
     [Atualizar Estoque]
   }
-
-  // --- Tela: Gerar Relatório --- //
-  {T "Gerar Relatório"
-    [Período: | 01/03/2024 ▾ to 31/03/2024 ▾]
-    [Métricas:]
-    [ (✔) Vendas por dia  ]
-    [ (✔) Produtos mais vendidos ]
-    [ ( ) Ticket médio    ]
-    [Formato: | (✔) PDF   ( ) Excel ]
-    [ [Gerar Relatório] ]
-  }
-
-  // --- Notas --- //
-  note right
-    <b>Problemas identificados:</b>
-    1. Campo de busca lento
-    2. Atualização de estoque não automática
-    3. Opções de relatório pouco intuitivas
-  end note
+  .
+  // <b>Tela: Gerar Relatório //
+  .
+  {+ <b>Gerar Relatório
+  .
+  
+  Período: | 01/03/2024 ▾ to 31/03/2024 ▾
+  Métricas:
+  (✔) Vendas por dia  
+  (✔) Produtos mais vendidos 
+  ( ) Ticket médio    
+  [Formato: | (✔) PDF   ( ) Excel 
+  [Gerar Relatório]
+  } 
 }
 @endsalt
 ```
-
----
-
+  
 ### **Características do Protótipo:**
 
 1. **Registrar Pedido**:

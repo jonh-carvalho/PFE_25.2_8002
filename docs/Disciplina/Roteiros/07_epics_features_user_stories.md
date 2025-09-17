@@ -1,4 +1,9 @@
-# 09 - **Histórias de usuário** 
+---
+id: 07_epics_features_user_stories
+title: Epics, Features e Histórias de Usuário
+---
+
+# 07 - **Histórias de usuário** 
 
 A partir do cenário, análise de tarefas e protótipo, podemos levantar as seguintes **histórias de usuário** utilizando o formato padrão ("Como [persona], quero [ação] para [benefício]"):
 
