@@ -16,6 +16,8 @@ nav:
           - AHT: Disciplina/Roteiros/07_aht.md
           - Sprint Planning: Disciplina/Roteiros/07_receitas.md
           - Epic, Feature, User Story: Disciplina/Roteiros/07_epics_features_user_stories.md
+          - Protótipo de Baixa Fidelidade: Disciplina/Roteiros/08_proto.md
+  
   - Design Thinking:
       - Index: Design Thinking/index.md
       - Pesquisa: Design Thinking/pesquisa.md
@@ -91,8 +93,6 @@ plugins:
   - plantuml:
       puml_url: https://www.plantuml.com/plantuml/
       puml_keyword: plantuml
-  - minify:
-      minify_html: true
   - search
 
 theme:
