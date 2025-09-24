@@ -47,6 +47,7 @@ hide:
 
     [:octicons-arrow-right-24: Repositório](https://github.com/Projetos-de-Extensao/PFE_25.2_8002_V)
 
+-   :material-github:{ .lg .right } __PFE_25.2_8002_VI__
     ---
 
     Lucas Carvalho, Lucas Holanda, Gabriel Aguiar, João Pedro Sampaio, Rodrigo Mourão
