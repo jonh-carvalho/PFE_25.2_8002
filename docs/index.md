@@ -27,7 +27,7 @@ hide:
 
     ---
 
-    Nicholas Vasconcelos, Mateus Oliveira, João Marcio, Victor Robson, Lucas Martins
+    Nicholas Vasconcelos, Mateus Oliveira, João Marcio, Victor Robson   
 
     [:octicons-arrow-right-24: Repositório](https://github.com/Projetos-de-Extensao/PFE_25.2_8002_III)
 
@@ -46,6 +46,12 @@ hide:
     Marcos Paulo, Micael, Israel, João Gabriel Oliveiras, Caio Ximenes
 
     [:octicons-arrow-right-24: Repositório](https://github.com/Projetos-de-Extensao/PFE_25.2_8002_V)
+
+    ---
+
+    Lucas Carvalho, Lucas Holanda, Gabriel Aguiar, João Pedro Sampaio, Rodrigo Mourão
+
+    [:octicons-arrow-right-24: Repositório](https://github.com/Projetos-de-Extensao/PFE_25.2_8002_VI)
 
 </div>
 
