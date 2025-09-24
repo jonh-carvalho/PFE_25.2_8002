@@ -3,15 +3,15 @@ id: brainstorm
 title: Brainstorm
 ---
  
+
 ## Introdução
-<p align = "justify">
+
 O brainstorm é uma técnica de elicitação de requisitos que consiste em reunir a equipe e discutir sobre diversos tópicos gerais do projeto apresentados no documento problema de negócio. No brainstorm o diálogo é incentivado e críticas são evitadas para permitir que todos colaborem com suas próprias ideias.
-</p>
  
 ## Metodologia
-<p align = "justify">
+
 A equipe se reuniu para debater ideias gerais sobre o projeto via..., começou .... e terminou..., onde o XXXX XXXX foi o moderador, direcionando a equipe com questões pré-elaboradas, e transcrevendo as respostas para o documento.
-</p>
+
  
 ## Brainstorm
  
@@ -21,79 +21,79 @@ A equipe se reuniu para debater ideias gerais sobre o projeto via..., começou .
  
 ### 1. Qual o objetivo principal da aplicação?
  
-<p align = "justify">
-<b>XXXX</b> - Deve ser uma plataforma onde qualquer pessoa possa...
-</p>
+
+**XXXX** - Deve ser uma plataforma onde qualquer pessoa possa...
+
  
-<b>ZZZ</b> - A plataforma deve fornece...
+**ZZZ** - A plataforma deve fornece...
  
-<b>YYYY</b> - O objetivo da aplicação é....
+**YYYY** - O objetivo da aplicação é....
  
-<b>WWWW</b> - O principal objetivo da aplicação é a...
+**WWWW** - O principal objetivo da aplicação é a...
  
-<b>KKKK</b> - A plataforma deve gerenciar...
-</p>
+**>KKKK** - A plataforma deve gerenciar...
  
 ---
  
 ### 2. Como será o processo para cadastrar um novo clientetorneio?
  
-<p align = "justify">
-<b>XXXX</b> - O moderador deverá fazer login e...
- 
-<b>YYYY</b> - O cliente...
- 
-<b>WWWW</b> - Com o usuário logado, ele deverá...
 
-<b>ZZZZ</b> - O cliente...
+**XXXX** - O moderador deverá fazer login e...
  
-<b>KKK</b> - O cliente...
+**YYYY** - O cliente...
+ 
+**WWWW** - Com o usuário logado, ele deverá...
+
+**ZZZZ** - O cliente...
+ 
+**KKk** - O cliente...
  
 ---
  
 ### 3. Como será a forma de adicionar produtos?
  
-<p align = "justify">
-<b>XXXX</b> - O cliente ao cadastrar...
-</p>
+
+**XXXX** - O cliente ao cadastrar...
  
-<p align = "justify">
-<b>YYYYY</b> - O produto tem...
-</p>
+**YYYYY** - O produto tem...
  
-<b>ZZZZ</b> - O produto....
+**ZZZZ** - O produto....
  
-<b>XXXX</b> - O produto....
+**XXXX** - O produto....
 
  
 ---
  
 ### 4. Outras perguntas pertinentes ao contexto
 
-<p align = "justify">
-<b>XXXX</b> - Com a localização...
+
+**XXXX** - Com a localização...
  
-<b>YYYY</b> - O cliente...
+**YYYY** - O cliente...
  
-<b>ZZZ</b> - O cliente...
+**ZZZ** - O cliente...
  
 ---
  
 ### 5. "Outras perguntas pertinentes ao contexto", Como seria a forma de adicionar do cliente adicionar os produtos ?
-<p align = "justify">
-<b>XXX</b> - O cliente....
-</p>
+
+
+**XXX** - O cliente....
+
  
 ### 6. Quais informações seriam interessante para o cliente?
-<p align = "justify">
-   <b>XXX</b> - Informações...
-   
-   <b>ZZZZ</b> - O cliente usuário poderá acessar informações...
 
-   <b>WWWWs</b> - O usuário poderá ver scouts de partidas do torneio, ver as regras dos torneios, locais e data das partidas.
+   **XXX** - Informações...
+
+   **ZZZZ** - O cliente usuário poderá acessar informações...
+
+   **WWWWs** - O usuário poderá ver scouts de partidas do torneio, ver as regras dos torneios, locais e data das partidas.  <b>XXX</b> - Informações...
    
-</p>
- 
+   **ZZZZ** - O cliente usuário poderá acessar informações...
+
+   **WWWW** - O usuário poderá ver scouts de partidas do torneio, ver as regras dos torneios, locais e data das partidas.
+   
+
 ### Requisitos elicitados
  
 |ID|Descrição|
@@ -115,9 +115,9 @@ A equipe se reuniu para debater ideias gerais sobre o projeto via..., começou .
 |BS15| O produto...|
  
 ## Conclusão
-<p align = "justify">
+
 Através da aplicação da técnica, foi possível elicitar alguns dos primeiros requisitos do projeto.
-</p>
+
 ## Referências Bibliográficas
  
 > BARBOSA, S. D. J; DA SILVA, B. S. Interação humano-computador. Elsevier, 2010.
