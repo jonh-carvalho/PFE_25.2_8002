@@ -96,6 +96,7 @@ plugins:
   - search
 
 theme:
+  favicon: assets/ibmec_icon.png
   features:
     - content.code.copy
     - navigation.indexes
