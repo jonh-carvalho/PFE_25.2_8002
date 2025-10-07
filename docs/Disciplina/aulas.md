@@ -11,9 +11,17 @@ Aula | Conteúdo
 **__07__ - 17/09/25** | :material-check: [Brainstorm](../assets/Aulas/O%20processo%20de brainstorm.pdf) <br> :material-check: [Mapa Mental](../assets/Aulas/Mapa%20Mental.pdf) <br> [Análise de Tarefas - AHT](../assets/Aulas/Análise%20de%20Tarefas.pdf) <br> - [Roteiro](./Roteiros/07_epics_features_user_stories.md) 
 **__08__ - 24/09/25** | :material-check: Protótipo de Baixa Fidelidade
 **__09__ - 31/09/25** | :material-check: AP1 - Apresentação
+**__10__ - 07/10/25** | :material-check: Roteiros - Introdução ao React
+**__11__ - 14/10/25** | :material-check: Sprint II - React - Site HTML/CSS/
+**__12__ - 21/10/25** | :material-check: Roteiros React -  
+**__13__ - 28/10/25** | :material-check: React - Sprint III - Site HTML/CSS
+**__14__ - 05/11/25** | :material-check: React - API -Filtros
+**__15__ - 12/11/25** | :material-check: React - AP2 -  Sprint IV
+**__16__ - 19/11/25** | :material-check: 
+**__17__ - 26/11/25** | :material-check: AS
 
 
-
+ 
 <!--
 | Aula          - | Conteúdo |
 | ---- | -------- |
