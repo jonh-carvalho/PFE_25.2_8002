@@ -8,6 +8,9 @@ nav:
   - Home: index.md
   - Disciplina:
       - Aulas: Disciplina/aulas.md
+      - React:
+              - Introdução: React/01_Intro.md
+              - Node.js Vite React: React\02_NodeViteReact.md
       - Github: Disciplina/github.md
       - Mkdocs: Disciplina/mkdocs.md
       - CodeSpace: Disciplina/codespace.md
