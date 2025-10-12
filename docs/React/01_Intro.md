@@ -15,9 +15,42 @@ Apresentar os conceitos básicos do React e como integrá-lo em uma página HTML
 
 **Vantagens**:
 
-  - Componentes reutilizáveis**
+  - Componentes reutilizáveis
   - Atualizações rápidas do DOM (Virtual DOM)
   - Facilita a criação de Single Page Applications (SPAs)
+
+**Virtual DOM**:  
+O Virtual DOM é uma representação leve da estrutura real do DOM mantida na memória pelo React. Quando o estado de um componente muda, o React atualiza primeiro o Virtual DOM, compara as diferenças com o DOM real (processo chamado de "reconciliation") e aplica apenas as alterações necessárias. Isso torna as atualizações de interface mais rápidas e eficientes, pois evita manipulações desnecessárias do DOM real.
+
+---
+
+#### **Comparação: React vs JavaScript Vanilla**
+
+| Característica            | React                                      | JavaScript Vanilla                      |
+|---------------------------|--------------------------------------------|-----------------------------------------|
+| Manipulação do DOM        | Utiliza Virtual DOM para otimizar mudanças | Manipulação direta do DOM               |
+| Organização do código     | Baseado em componentes reutilizáveis       | Estrutura livre, menos modularidade     |
+| Atualização de interface  | Automática via estado e props              | Manual, exige mais código               |
+| Aprendizado               | Requer aprender conceitos próprios         | Conhecimento básico de JS suficiente    |
+| Escalabilidade            | Ideal para projetos grandes e SPAs         | Mais indicado para projetos simples     |
+
+**Exemplo de atualização de conteúdo:**
+
+*JavaScript Vanilla:*
+```html
+<div id="root"></div>
+<script>
+  document.getElementById('root').innerText = 'Hello, World!';
+</script>
+```
+
+*React:*
+```javascript
+ReactDOM.render(
+  React.createElement('h1', null, 'Hello, World!'),
+  document.getElementById('root')
+);
+```
 
 ---
 

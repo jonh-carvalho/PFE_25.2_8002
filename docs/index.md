@@ -24,7 +24,7 @@ hide:
     
     ---
 
-    <a href="https://iskills.ibmec.edu.br" target="_blank"><img src="assets/iskills.png" alt="ibmec iskills" style="max-width:220px; width:100%; height:auto; border-radius:6px;" /></a>
+    <a href="https://iskills.ibmec.edu.br" target="_blank"><img src="assets/iskills.png" alt="ibmec iskills" style="max-width:220px; width:auto; height:240px; border-radius:6px;" /></a>
     
 
 -   :material-github:{ .lg .right } __PFE_25.2_8002_I__
