@@ -109,7 +109,53 @@ function CountryList() {
 
 Vamos começar a construir um projeto que evolui ao longo do curso. Começaremos com uma lista simples de países que será expandida nos próximos módulos.
 
-**Projeto Atual: Lista Estática**
+**1. Crie um novo projeto:**
+
+```bash
+npm create vite@latest lista_de_paises --template react
+```
+
+Substitua `lista_de_paises` pelo nome desejado para seu projeto.
+
+### **Estrutura de Pastas do Projeto Vite + React**
+
+Após criar o projeto, você terá a seguinte estrutura:
+
+```
+lista_de_paises/
+├── node_modules/
+├── public/
+├── src/
+│   ├── assets/        # Arquivos de imagens, estilos, etc.
+│   ├── App.jsx        # Componente principal da aplicação    
+│   ├── App.css        # Estilos globais
+│   ├── index.css      # Estilos globais
+│   └── main.jsx       # Ponto de entrada da aplicação
+├── .gitignore         # Arquivos e pastas a serem ignorados pelo Git
+├── index.html         # Arquivo HTML principal
+├── package.json       # Dependências e scripts do projeto
+├── README.md          # Documentação do projeto
+└── vite.config.js     # Configuração do Vite
+```
+
+**2. Instale as dependências:**
+
+```bash
+cd lista_de_paises
+npm install
+```
+
+**4. Inicie o servidor de desenvolvimento:**
+
+```bash
+npm run dev
+```
+
+Seu aplicativo estará disponível em `http://localhost:5173/` (porta padrão do Vite).
+
+---
+
+**5. Projeto Atual: Lista Estática**
 
 ```jsx
 function App() {
@@ -137,7 +183,7 @@ function App() {
 export default App;
 ```
 
-**CSS básico (App.css):**
+**6. CSS básico (App.css):**
 
 ```css
 .app {
@@ -176,13 +222,13 @@ export default App;
 
 Ao longo do curso, este projeto evoluirá:
 
-- **Módulo 4**: Separar em componentes reutilizáveis
-- **Módulo 5**: Usar props para passar dados
-- **Módulo 6**: Adicionar interatividade com useState
-- **Módulo 8**: Renderizar listas dinamicamente
-- **Módulo 11**: Carregar dados de arquivo JSON
-- **Módulo 12**: Consumir API REST Countries
-- **Módulo 13**: Adicionar filtros e busca
+- **Roteiro 4**: Separar em componentes reutilizáveis
+- **Roteiro 5**: Usar props para passar dados
+- **Roteiro 6**: Adicionar interatividade com useState
+- **Roteiro 8**: Renderizar listas dinamicamente
+- **Roteiro 11**: Carregar dados de arquivo JSON
+- **Roteiro 12**: Consumir API REST Countries
+- **Roteiro 13**: Adicionar filtros e busca
 
 ### Exercícios Práticos
 
@@ -211,4 +257,4 @@ Ao longo do curso, este projeto evoluirá:
 
 ### Próximo Módulo
 
-No próximo módulo, aprenderemos sobre **Componentes**, onde dividiremos nosso projeto em partes menores e reutilizáveis, aplicando os conceitos de JSX que acabamos de aprender.
+No próximo roteiro do módulo, aprenderemos sobre **Componentes**, onde dividiremos nosso projeto em partes menores e reutilizáveis, aplicando os conceitos de JSX que acabamos de aprender.
