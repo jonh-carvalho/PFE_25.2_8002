@@ -67,23 +67,23 @@ Vamos adicionar funcionalidades interativas ao nosso projeto "Lista de Países" 
 
 ```jsx
 // src/components/CountryCard.jsx
-import { useState } from 'react';
-
-function CountryCard({ flag, name, capital, population, language }) {
-  const [isFavorite, setIsFavorite] = useState(false);
-
-  const toggleFavorite = () => {
-    setIsFavorite(!isFavorite);
+function CountryCard({ id, flag, name, capital, population, language, isFavorite = false, onToggleFavorite }) {
+  
+  const handleCardClick = () => {
+    onToggleFavorite?.(id);
   };
 
   return (
-    <div className={`country-card ${isFavorite ? 'favorite' : ''}`}>
+    <div 
+      className={`country-card ${isFavorite ? 'favorite' : ''}`}
+      onClick={handleCardClick}
+    >
       <div className="country-header">
         <span className="flag">{flag}</span>
         <h3>{name}</h3>
         <button 
           className="favorite-btn"
-          onClick={toggleFavorite}
+          onClick={(e) => { e.stopPropagation(); onToggleFavorite?.(id); }}
           title={isFavorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}
         >
           {isFavorite ? '❤️' : '🤍'}
@@ -106,18 +106,19 @@ export default CountryCard;
 
 ```jsx
 // src/components/Header.jsx
-function Header({ title, subtitle, favoriteCount }) {
+function Header({ title, subtitle, favoriteCount  }) {
   return (
     <header className="app-header">
       <h1>{title}</h1>
       {subtitle && <p>{subtitle}</p>}
+
       <div className="favorite-counter">
         <span>❤️ {favoriteCount} países favoritos</span>
       </div>
+
     </header>
   );
 }
-
 export default Header;
 ```
 
@@ -126,9 +127,9 @@ export default Header;
 ```jsx
 // src/App.jsx
 import { useState } from 'react';
-import Header from './components/Header';
-import CountryGrid from './components/CountryGrid';
 import './App.css';
+import CountryGrid from './components/CountryGrid';
+import Header from './components/Header';
 
 function App() {
   const [countries, setCountries] = useState([
@@ -139,13 +140,21 @@ function App() {
     { id: 5, flag: "🇵🇪", name: "Peru", capital: "Lima", population: "33 milhões", language: "Espanhol" },
     { id: 6, flag: "🇨🇴", name: "Colômbia", capital: "Bogotá", population: "51 milhões", language: "Espanhol" }
   ]);
-
-  const [favoriteCount, setFavoriteCount] = useState(0);
+  // Armazena os IDs dos países favoritos
+  const [favorites, setFavorites] = useState([]);
   const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
 
-  const updateFavoriteCount = (increment) => {
-    setFavoriteCount(favoriteCount + (increment ? 1 : -1));
+  const toggleFavorite = (id) => {
+    setFavorites((prev) =>
+      prev.includes(id) ? prev.filter((fid) => fid !== id) : [...prev, id]
+    );
   };
+
+  const favoriteCount = favorites.length;
+
+  const visibleCountries = showOnlyFavorites
+    ? countries.filter((c) => favorites.includes(c.id))
+    : countries;
 
   return (
     <div className="app">
@@ -163,11 +172,11 @@ function App() {
           {showOnlyFavorites ? 'Mostrar Todos' : 'Mostrar Favoritos'}
         </button>
       </div>
-
+      
       <CountryGrid 
-        countries={countries}
-        onFavoriteChange={updateFavoriteCount}
-        showOnlyFavorites={showOnlyFavorites}
+        countries={visibleCountries}
+        favorites={favorites}
+        onToggleFavorite={toggleFavorite}
       />
     </div>
   );
@@ -176,7 +185,36 @@ function App() {
 export default App;
 ```
 
-### 4. CSS Atualizado para Interatividade
+### 4. CountryGrid para "impressão" de países usando map
+
+```
+// src/components/CountryGrid.jsx
+import CountryCard from './CountryCard';
+
+function CountryGrid({ countries, favorites = [], onToggleFavorite }) {
+  return (
+    <div className="country-grid">
+      {countries.map((country) => (
+        <CountryCard 
+          key={country.id}
+          id={country.id}
+          flag={country.flag}
+          name={country.name}
+          capital={country.capital}
+          population={country.population}
+          language={country.language}
+          isFavorite={favorites.includes(country.id)}
+          onToggleFavorite={onToggleFavorite}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default CountryGrid;
+```
+
+### 5. CSS Atualizado para Interatividade
 
 ```css
 /* App.css */
