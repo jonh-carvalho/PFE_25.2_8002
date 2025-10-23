@@ -9,8 +9,13 @@ nav:
   - Disciplina:
       - Aulas: Disciplina/aulas.md
       - React:
-              - Introdução: React/01_Intro.md
-              - Node.js Vite React: React\02_NodeViteReact.md
+              - 1 - Introdução: React/01_Intro.md
+              - 2 - Node.js Vite React: React/02_NodeViteReact.md
+              - 3 - JSX: React/03_JSX_Sintaxe.md
+              - 4 - Componentes: React\04_Componentes.md
+              - 5 - Props: React\05_Props_e_Comunicação.md
+              - 6 - Estados: React\06_useState.md
+              - 7 - Eventos e Forms: React\07_Eventos_e_Forms.md
       - Github: Disciplina/github.md
       - Mkdocs: Disciplina/mkdocs.md
       - CodeSpace: Disciplina/codespace.md
