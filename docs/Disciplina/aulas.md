@@ -14,11 +14,12 @@ Aula | Conteúdo
 **__10__ - 08/10/25** | :material-check: Roteiros - Introdução ao React
 **__11__ - 15/10/25** | :material-check: **FERIADO** - Sprint II - React - Site HTML/CSS/
 **__12__ - 22/10/25** | :material-check: Roteiros React - Props e State  
-**__13__ - 29/10/25** | :material-check: Sprint III 
+**__13__ - 29/10/25** | :material-check: Recesso 
 **__14__ - 05/11/25** | :material-check: Roteiros React - Filtros
-**__15__ - 12/11/25** | :material-check: AP2 - Apresentação - Sprint IV
-**__16__ - 19/11/25** | :material-check: 
-**__17__ - 26/11/25** | :material-check: AS
+**__15__ - 12/11/25** | :material-check: Sprint IV - React/Componentes
+**__16__ - 19/11/25** | :material-check: **AP2 - Apresentação - Sprint IV**
+**__17__ - 26/11/25** | :material-check: 
+**__18__ - 03/12/25** | :material-check: AS
 
 
  
