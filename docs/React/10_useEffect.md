@@ -1,271 +1,231 @@
 ---
 id: 10_useEffect
-title: 10 - useEffect e Ciclo de Vida
+title: 10 - useEffect - Carregamento Automático
 ---
 
-# 10 - **useEffect e Ciclo de Vida**
+# 10 - useEffect: Carregamento Automático de Dados
 
-Neste módulo, você aprenderá o hook `useEffect`, essencial para gerenciar efeitos colaterais e o ciclo de vida de componentes React. Implementaremos o carregamento automático de dados na nossa **Lista de Países** conectando com APIs.
+Aprenda o hook mais importante para side effects no React! Vamos automatizar o carregamento de países e entender o ciclo de vida dos componentes.
 
 ---
 
-## **Objetivos do Módulo**
-- Dominar o hook `useEffect` e suas dependências
+## Objetivos do Módulo
+
+- Automatizar o carregamento da API do IBGE usando `useEffect`
 - Entender o ciclo de vida de componentes funcionais
-- Implementar carregamento automático de dados
-- Conectar nossa Lista de Países com APIs reais
-- Gerenciar cleanup e memory leaks
+- Gerenciar estados de loading, error e success
+- Trabalhar com array de dependências do useEffect
+- Mapear dados da API para o formato da aplicação
 
 ---
 
-## **1. Introdução ao useEffect**
+## 1. O Problema: Carregamento Manual
 
-### **O que é useEffect?**
-
-O `useEffect` é um hook que permite executar **efeitos colaterais** em componentes funcionais. Efeitos colaterais são operações que afetam algo fora do componente:
-
-- 🌐 **Chamadas de API**
-- ⏰ **Timers e intervalos**
-- 🎧 **Event listeners**
-- 📄 **Manipulação do DOM**
-- 🧹 **Cleanup de recursos**
-
-### **Sintaxe Básica**
+No Módulo 09, precisávamos clicar num botão para carregar os países:
 
 ```jsx
-import { useEffect } from 'react';
-
-useEffect(() => {
-  // Código do efeito
-}, [dependências]);
-```
-
-### **Anatomia do useEffect**
-
-```jsx
-useEffect(
-  () => {
-    // 1. Código que executa
-    console.log('Efeito executado!');
-    
-    // 2. Cleanup (opcional)
-    return () => {
-      console.log('Cleanup executado!');
-    };
-  },
-  [dependência1, dependência2] // 3. Array de dependências
-);
-```
-
----
-
-## **2. Padrões de Dependências**
-
-### **2.1 Sem Array de Dependências**
-
-```jsx
-useEffect(() => {
-  console.log('Executa a cada render!');
-});
-// ⚠️ Cuidado: pode causar loops infinitos
-```
-
-### **2.2 Array Vazio `[]`**
-
-```jsx
-useEffect(() => {
-  console.log('Executa apenas uma vez (componentDidMount)');
-}, []);
-// ✅ Ideal para: carregar dados iniciais, configurar listeners
-```
-
-### **2.3 Com Dependências Específicas**
-
-```jsx
-const [count, setCount] = useState(0);
-
-useEffect(() => {
-  console.log(`Count mudou para: ${count}`);
-}, [count]);
-// ✅ Executa apenas quando 'count' muda
-```
-
-### **2.4 Múltiplas Dependências**
-
-```jsx
-const [name, setName] = useState('');
-const [age, setAge] = useState(0);
-
-useEffect(() => {
-  console.log(`Dados atualizados: ${name}, ${age}`);
-}, [name, age]);
-// ✅ Executa quando 'name' OU 'age' mudam
-```
-
----
-
-## **3. Ciclo de Vida com useEffect**
-
-### **Comparação com Class Components**
-
-| Class Component | Functional Component |
-|-----------------|---------------------|
-| `componentDidMount` | `useEffect(() => {}, [])` |
-| `componentDidUpdate` | `useEffect(() => {}, [dep])` |
-| `componentWillUnmount` | `useEffect(() => { return () => {} }, [])` |
-
-### **Exemplo Prático: Timer**
-
-```jsx
-import React, { useState, useEffect } from 'react';
-
-function Timer() {
-  const [seconds, setSeconds] = useState(0);
-  const [isRunning, setIsRunning] = useState(false);
-
-  useEffect(() => {
-    let interval = null;
-
-    if (isRunning) {
-      // Configurar timer
-      interval = setInterval(() => {
-        setSeconds(prevSeconds => prevSeconds + 1);
-      }, 1000);
-    }
-
-    // Cleanup function
-    return () => {
-      if (interval) {
-        clearInterval(interval);
-      }
-    };
-  }, [isRunning]); // Reexecuta quando isRunning muda
+// Problema: usuário precisa clicar para ver dados
+function App() {
+  const [countries, setCountries] = useState([]);
+  
+  const loadCountries = () => {
+    fetch('https://servicodados.ibge.gov.br/api/v1/paises')
+      .then(r => r.json())
+      .then(data => {
+        const mapped = data.map(pais => ({
+          cca3: pais.id['ISO-3166-1-ALPHA-3'],
+          name: pais.nome.abreviado,
+          // ... outros campos
+        }));
+        setCountries(mapped);
+      });
+  };
 
   return (
     <div>
-      <h2>Timer: {seconds}s</h2>
-      <button onClick={() => setIsRunning(!isRunning)}>
-        {isRunning ? 'Pausar' : 'Iniciar'}
-      </button>
-      <button onClick={() => setSeconds(0)}>Reset</button>
+      <button onClick={loadCountries}>Carregar Países</button>
     </div>
   );
 }
 ```
 
+### Queremos:
+
+- Carregar automaticamente ao abrir a página
+- Mostrar loading enquanto carrega
+- Exibir mensagens de erro amigáveis
+- Mapear dados da API do IBGE para o formato esperado
+
 ---
 
-## **4. useEffect com APIs - Evoluindo a Lista de Países**
+## 2. Introdução ao useEffect
 
-Vamos conectar nossa Lista de Países com a API REST Countries usando useEffect:
+### O que é useEffect?
 
-### **4.1 Carregamento Inicial de Dados**
+`useEffect` é o hook que permite executar código em momentos específicos do ciclo de vida do componente.
 
 ```jsx
-// src/App.jsx
-import React, { useState, useEffect } from 'react';
-import Loading from './components/Loading';
-import ErrorMessage from './components/ErrorMessage';
+import { useEffect } from 'react';
+
+useEffect(() => {
+  // Este código roda depois que o componente renderiza
+  console.log('Componente montado ou atualizado!');
+}, [dependências]);
+```
+
+### Quando usar useEffect?
+
+- Requisições HTTP (APIs, fetch)
+- localStorage/sessionStorage
+- Timers (setTimeout, setInterval)
+- Event listeners (scroll, resize, teclado)
+- Manipulação do DOM (document.title, focus)
+
+---
+
+## 3. Padrões de Dependências
+
+### 3.1 Array Vazio - Executa UMA VEZ
+
+```jsx
+useEffect(() => {
+  console.log('Executa apenas quando componente MONTA');
+}, []); // Array vazio = roda 1x só
+```
+
+**Uso:** Carregar dados iniciais, configurar subscriptions
+
+### 3.2 Com Dependências - Executa quando MUDA
+
+```jsx
+const [search, setSearch] = useState('');
+
+useEffect(() => {
+  console.log('Search mudou para:', search);
+}, [search]); // Roda quando 'search' muda
+```
+
+**Uso:** Reagir a mudanças de estado/props
+
+### 3.3 Sem Array - Executa TODA RENDER
+
+```jsx
+useEffect(() => {
+  console.log('Executa em TODA render');
+}); // Cuidado! Pode causar loops
+```
+
+**Uso:** Raro, geralmente evitar
+
+---
+
+## 4. Carregamento Automático - Versão Simples
+
+```jsx
+// src/App.jsx - Carregamento Automático
+import { useEffect, useState } from 'react';
+import './App.css';
+import CountryGrid from './components/CountryGrid';
 
 function App() {
-  const [paises, setPaises] = useState([]);
-  const [carregando, setCarregando] = useState(true);
-  const [erro, setErro] = useState(null);
-  const [favoritos, setFavoritos] = useState([]);
+  const [countries, setCountries] = useState([]);
+  const [favorites, setFavorites] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // useEffect para carregar dados iniciais
+  // useEffect: carregar países AUTOMATICAMENTE ao montar componente
   useEffect(() => {
-    const carregarPaises = async () => {
+    console.log('useEffect executado! Carregando países...');
+    
+    const loadCountries = async () => {
       try {
-        setCarregando(true);
-        setErro(null);
-
-        const response = await fetch('https://restcountries.com/v3.1/all?fields=name,capital,population,region,flag,cca3');
+        setIsLoading(true);
+        setError(null);
+        
+        const response = await fetch('https://servicodados.ibge.gov.br/api/v1/paises');
         
         if (!response.ok) {
           throw new Error(`Erro HTTP: ${response.status}`);
         }
-
-        const data = await response.json();
         
-        // Limitar a 20 países para performance
-        const paisesLimitados = data.slice(0, 20);
-        setPaises(paisesLimitados);
-
-      } catch (error) {
-        setErro(error.message);
+        const data = await response.json();
+        console.log('Países carregados:', data.length);
+        
+        // Mapeia os dados do IBGE para o formato esperado
+        const mapped = data.map(pais => ({
+          cca3: pais.id['ISO-3166-1-ALPHA-3'],
+          flag: `https://flagcdn.com/${pais.id['ISO-3166-1-ALPHA-2'].toLowerCase()}.svg`,
+          name: pais.nome.abreviado,
+          capital: pais.governo?.capital?.nome || 'N/A',
+          population: 0,
+          region: pais.localizacao.regiao.nome,
+          subregion: pais.localizacao['sub-regiao']?.nome || 'N/A'
+        }));
+        
+        setCountries(mapped);
+        console.log('✅ Países mapeados:', mapped.length, 'países');
+        
+      } catch (err) {
+        console.error('Erro:', err);
+        setError(err.message);
       } finally {
-        setCarregando(false);
+        setIsLoading(false);
       }
     };
 
-    carregarPaises();
-  }, []); // Array vazio = executa apenas uma vez
+    loadCountries();
+  }, []); // Array vazio = executa apenas UMA VEZ na montagem
 
-  // useEffect para salvar favoritos no localStorage
-  useEffect(() => {
-    localStorage.setItem('favoritos', JSON.stringify(favoritos));
-  }, [favoritos]); // Executa quando favoritos mudam
-
-  // useEffect para carregar favoritos do localStorage
-  useEffect(() => {
-    const favoritosSalvos = localStorage.getItem('favoritos');
-    if (favoritosSalvos) {
-      setFavoritos(JSON.parse(favoritosSalvos));
-    }
-  }, []); // Executa apenas uma vez
-
-  const toggleFavorito = (paisCodigo) => {
-    setFavoritos(prev => 
-      prev.includes(paisCodigo)
-        ? prev.filter(codigo => codigo !== paisCodigo)
-        : [...prev, paisCodigo]
+  const toggleFavorite = (countryCode) => {
+    setFavorites(prev => 
+      prev.includes(countryCode)
+        ? prev.filter(code => code !== countryCode)
+        : [...prev, countryCode]
     );
-  };
-
-  const recarregarDados = () => {
-    // Força recarregamento mudando uma dependência
-    window.location.reload();
   };
 
   return (
     <div className="app">
       <header className="app-header">
-        <h1>🌍 Lista de Países</h1>
-        <p>Dados carregados automaticamente via useEffect</p>
+        <h1>Lista de Países do Mundo</h1>
+        <p>Carregamento automático com useEffect</p>
         
-        {paises.length > 0 && (
-          <div className="stats">
-            <span>📊 {paises.length} países</span>
-            <span>❤️ {favoritos.length} favoritos</span>
-            <button onClick={recarregarDados} className="reload-btn">
-              🔄 Recarregar
-            </button>
-          </div>
-        )}
+        {/* Debug: sempre mostrar para testar */}
+        <div className="header-stats">
+          <span>{countries.length} países</span>
+          <span>{favorites.length} favoritos</span>
+        </div>
       </header>
 
       <main className="main-content">
-        {carregando && <Loading />}
-        
-        {erro && (
-          <ErrorMessage 
-            mensagem={erro} 
-            onTentar={recarregarDados}
-          />
+        {/* Loading State */}
+        {isLoading && (
+          <div className="loading-container">
+            <div className="loading-spinner"></div>
+            <h2>Carregando países...</h2>
+            <p>Buscando dados da API do IBGE</p>
+          </div>
         )}
         
-        {!carregando && !erro && paises.length > 0 && (
-          <div className="countries-grid">
-            {paises.map(pais => (
-              <CountryCard 
-                key={pais.cca3}
-                pais={pais}
-                isFavorito={favoritos.includes(pais.cca3)}
-                onToggleFavorito={() => toggleFavorito(pais.cca3)}
-              />
-            ))}
+        {/* Error State */}
+        {error && (
+          <div className="error-container">
+            <div className="error-icon">❌</div>
+            <h2>Ops! Algo deu errado</h2>
+            <p className="error-message">{error}</p>
+            <button onClick={() => window.location.reload()} className="retry-btn">
+              Tentar Novamente
+            </button>
           </div>
+        )}
+        
+        {/* Success State */}
+        {!isLoading && !error && (
+          <CountryGrid 
+            countries={countries}
+            favorites={favorites}
+            onToggleFavorite={toggleFavorite}
+          />
         )}
       </main>
     </div>
@@ -275,266 +235,410 @@ function App() {
 export default App;
 ```
 
-### **4.2 Hook Customizado para API**
+### O que mudou?
+
+| Antes (Módulo 09) | Agora (Módulo 10) |
+|-------------------|-------------------|
+| Botão "Carregar Países" | Carrega automaticamente |
+| onClick={loadCountries} | useEffect(() => {...}, []) |
+| Usuário inicia ação | Componente inicia ação |
+| Sem loading/error states | Loading e error com JSX inline |
+
+---
+
+## 5. Entendendo o Código
+
+### 5.1 Estados de Controle
 
 ```jsx
-// src/hooks/usePaises.js
-import { useState, useEffect } from 'react';
-
-function usePaises() {
-  const [paises, setPaises] = useState([]);
-  const [carregando, setCarregando] = useState(true);
-  const [erro, setErro] = useState(null);
-
-  useEffect(() => {
-    let cancelado = false; // Flag para evitar memory leaks
-
-    const buscarPaises = async () => {
-      try {
-        setCarregando(true);
-        setErro(null);
-
-        const response = await fetch('https://restcountries.com/v3.1/all?fields=name,capital,population,region,flag,cca3');
-        
-        if (!response.ok) {
-          throw new Error(`Erro: ${response.status}`);
-        }
-
-        const data = await response.json();
-
-        // Verificar se o componente ainda está montado
-        if (!cancelado) {
-          setPaises(data.slice(0, 20));
-        }
-
-      } catch (error) {
-        if (!cancelado) {
-          setErro(error.message);
-        }
-      } finally {
-        if (!cancelado) {
-          setCarregando(false);
-        }
-      }
-    };
-
-    buscarPaises();
-
-    // Cleanup: cancelar operação se componente for desmontado
-    return () => {
-      cancelado = true;
-    };
-  }, []);
-
-  return { paises, carregando, erro };
-}
-
-export default usePaises;
+const [isLoading, setIsLoading] = useState(true);
+const [error, setError] = useState(null);
 ```
 
-### **4.3 Usando o Hook Customizado**
+**Por que iniciar com `true`?**
+- Quando o componente monta, já começamos carregando
+- Evita piscar de conteúdo vazio
+
+**Estados possíveis:**
+1. ⏳ Loading: `isLoading=true, error=null` → Mostra spinner
+2. ❌ Error: `isLoading=false, error="mensagem"` → Mostra erro
+3. ✅ Success: `isLoading=false, error=null` → Mostra países
+
+### 5.2 Mapeamento de Dados do IBGE
+
+A API do IBGE retorna dados em formato diferente do esperado:
 
 ```jsx
-// src/App.jsx (versão simplificada)
-import React, { useState, useEffect } from 'react';
-import usePaises from './hooks/usePaises';
-
-function App() {
-  const { paises, carregando, erro } = usePaises();
-  const [favoritos, setFavoritos] = useState([]);
-
-  // Carregar favoritos do localStorage
-  useEffect(() => {
-    const favoritosSalvos = localStorage.getItem('favoritos');
-    if (favoritosSalvos) {
-      setFavoritos(JSON.parse(favoritosSalvos));
+// Formato do IBGE (nested):
+{
+  "id": {
+    "ISO-3166-1-ALPHA-3": "BRA",
+    "ISO-3166-1-ALPHA-2": "BR"
+  },
+  "nome": {
+    "abreviado": "Brasil"
+  },
+  "governo": {
+    "capital": {
+      "nome": "Brasília"
     }
-  }, []);
+  },
+  "localizacao": {
+    "regiao": {
+      "nome": "Americas"
+    },
+    "sub-regiao": {
+      "nome": "South America"
+    }
+  }
+}
 
-  // Salvar favoritos no localStorage
-  useEffect(() => {
-    localStorage.setItem('favoritos', JSON.stringify(favoritos));
-  }, [favoritos]);
-
-  // ... resto do componente
+// Formato da aplicação (flat):
+{
+  cca3: "BRA",
+  flag: "https://flagcdn.com/br.svg",
+  name: "Brasil",
+  capital: "Brasília",
+  population: 0,
+  region: "Americas",
+  subregion: "South America"
 }
 ```
 
----
-
-## **5. Padrões Avançados com useEffect**
-
-### **5.1 Debounce com useEffect**
+**Mapeamento com `.map()`:**
 
 ```jsx
-function SearchCountries() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [results, setResults] = useState([]);
+const mapped = data.map(pais => ({
+  cca3: pais.id['ISO-3166-1-ALPHA-3'],
+  flag: `https://flagcdn.com/${pais.id['ISO-3166-1-ALPHA-2'].toLowerCase()}.svg`,
+  name: pais.nome.abreviado,
+  capital: pais.governo?.capital?.nome || 'N/A',
+  population: 0, // IBGE não fornece
+  region: pais.localizacao.regiao.nome,
+  subregion: pais.localizacao['sub-regiao']?.nome || 'N/A'
+}));
+```
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      if (searchTerm) {
-        // Buscar países depois de 500ms de pausa na digitação
-        fetch(`https://restcountries.com/v3.1/name/${searchTerm}`)
-          .then(response => response.json())
-          .then(setResults);
-      }
-    }, 500);
+### 5.3 Renderização Condicional (3 Estados)
 
-    // Cleanup: cancelar timeout anterior
-    return () => clearTimeout(timeoutId);
-  }, [searchTerm]);
-
-  return (
-    <div>
-      <input 
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder="Buscar país..."
+```jsx
+return (
+  <main>
+    {/* Estado 1: Loading */}
+    {isLoading && (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <h2>Carregando países...</h2>
+        <p>Buscando dados da API do IBGE</p>
+      </div>
+    )}
+    
+    {/* Estado 2: Error */}
+    {error && (
+      <div className="error-container">
+        <div className="error-icon">❌</div>
+        <h2>Ops! Algo deu errado</h2>
+        <p className="error-message">{error}</p>
+        <button onClick={() => window.location.reload()}>
+          Tentar Novamente
+        </button>
+      </div>
+    )}
+    
+    {/* Estado 3: Success */}
+    {!isLoading && !error && (
+      <CountryGrid 
+        countries={countries}
+        favorites={favorites}
+        onToggleFavorite={toggleFavorite}
       />
-      {/* Renderizar results */}
-    </div>
-  );
-}
+    )}
+  </main>
+);
 ```
 
-### **5.2 Event Listeners**
+**Lógica:**
+- Se `isLoading=true` → Mostra loading
+- Se `error` existe → Mostra erro
+- Se nenhum dos dois → Mostra grid de países
 
-```jsx
-function WindowSize() {
-  const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight
-  });
+---
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight
-      });
-    };
+## 6. Estilos para Loading e Error
 
-    // Adicionar listener
-    window.addEventListener('resize', handleResize);
+Adicione ao `App.css`:
 
-    // Cleanup: remover listener
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []); // Array vazio = adiciona listener apenas uma vez
+```css
+/* Loading State */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
 
-  return <p>Janela: {windowSize.width} x {windowSize.height}</p>;
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-container h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.loading-container p {
+  color: #777;
+  font-size: 0.95rem;
+}
+
+/* Error State */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 20px;
+}
+
+.error-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.error-container h2 {
+  color: #e74c3c;
+  margin-bottom: 10px;
+}
+
+.error-message {
+  background: #ffe6e6;
+  color: #c0392b;
+  padding: 15px 25px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-family: monospace;
+}
+
+.retry-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.retry-btn:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 ```
 
 ---
 
-## **6. Boas Práticas e Armadilhas**
+## 7. Testando o Comportamento
 
-### **✅ Boas Práticas**
+### 7.1 Testar Loading
 
-1. **Sempre inclua dependências necessárias**
-   ```jsx
-   useEffect(() => {
-     fetchData(userId);
-   }, [userId]); // ✅ Inclui userId
-   ```
+1. Abra DevTools (F12) → Network
+2. Selecione "Slow 3G" para simular internet lenta
+3. Recarregue a página (F5)
+4. Observe o spinner e mensagem de loading
 
-2. **Use cleanup para evitar memory leaks**
-   ```jsx
-   useEffect(() => {
-     const interval = setInterval(callback, 1000);
-     return () => clearInterval(interval); // ✅ Cleanup
-   }, []);
-   ```
+### 7.2 Testar Error
 
-3. **Separe efeitos por responsabilidade**
-   ```jsx
-   // ✅ Um useEffect para cada responsabilidade
-   useEffect(() => { /* carregar dados */ }, []);
-   useEffect(() => { /* salvar no localStorage */ }, [data]);
-   ```
+**Opção 1: URL inválida**
 
-### **❌ Armadilhas Comuns**
+```jsx
+const response = await fetch('https://url-invalida.com/api');
+```
 
-1. **Loops infinitos**
-   ```jsx
-   // ❌ Cria loop infinito
-   useEffect(() => {
-     setCount(count + 1);
-   }); // Sem array de dependências
-   ```
+**Opção 2: DevTools Offline**
 
-2. **Dependências faltando**
-   ```jsx
-   // ❌ useEffect depende de 'name' mas não está nas dependências
-   useEffect(() => {
-     fetchUserData(name);
-   }, []); // Deveria ser [name]
-   ```
+1. F12 → Network
+2. Selecione "Offline"
+3. Recarregue a página
+4. Deve aparecer mensagem de erro
 
-3. **Cleanup inadequado**
-   ```jsx
-   // ❌ Não remove event listener
-   useEffect(() => {
-     window.addEventListener('scroll', handleScroll);
-     // Faltou: return () => window.removeEventListener('scroll', handleScroll);
-   }, []);
-   ```
+### 7.3 Testar Success
+
+1. Volte para "No throttling" no Network
+2. Recarregue
+3. Países devem aparecer normalmente
 
 ---
 
-## **📝 Exercício Prático**
+## 8. Exercícios Práticos
 
-### 🎯 **Objetivo**
-Implementar busca em tempo real na Lista de Países com debounce
+### Exercício 1: Adicionar Contador de Tempo
 
-### 📋 **Requisitos**
-- [ ] Adicionar campo de busca que filtra países por nome
-- [ ] Implementar debounce de 300ms para evitar muitas requisições
-- [ ] Mostrar loading durante a busca
-- [ ] Exibir mensagem quando nenhum país for encontrado
-- [ ] Limpar busca com botão "X"
+Mostre quanto tempo levou para carregar:
 
-### 🚀 **Dica de Implementação**
 ```jsx
-const [searchTerm, setSearchTerm] = useState('');
-const [searchResults, setSearchResults] = useState([]);
+useEffect(() => {
+  const startTime = Date.now();
+  
+  const loadCountries = async () => {
+    try {
+      // ... código de loading
+      
+      const endTime = Date.now();
+      const duration = ((endTime - startTime) / 1000).toFixed(2);
+      console.log(`Carregou em ${duration} segundos`);
+      
+    } catch (err) {
+      // ...
+    }
+  };
+  
+  loadCountries();
+}, []);
+```
+
+### Exercício 2: Botão de Recarregar Avançado
+
+Em vez de `window.location.reload()`, reexecute o fetch:
+
+```jsx
+const [refreshKey, setRefreshKey] = useState(0);
 
 useEffect(() => {
-  const timeoutId = setTimeout(async () => {
-    if (searchTerm.trim()) {
-      try {
-        const response = await fetch(`https://restcountries.com/v3.1/name/${searchTerm}`);
-        const data = await response.json();
-        setSearchResults(data);
-      } catch (error) {
-        setSearchResults([]);
-      }
-    } else {
-      setSearchResults([]);
-    }
-  }, 300);
+  const loadCountries = async () => {
+    // ... código de loading
+  };
+  
+  loadCountries();
+}, [refreshKey]); // Reexecuta quando refreshKey muda
 
-  return () => clearTimeout(timeoutId);
-}, [searchTerm]);
+// No botão:
+<button onClick={() => setRefreshKey(prev => prev + 1)}>
+  Tentar Novamente
+</button>
+```
+
+### Exercício 3: Mensagens de Error Personalizadas
+
+```jsx
+const getErrorMessage = (error) => {
+  if (error.message.includes('Failed to fetch')) {
+    return 'Sem conexão com a internet. Verifique sua rede.';
+  }
+  if (error.message.includes('404')) {
+    return 'API não encontrada. Verifique a URL.';
+  }
+  if (error.message.includes('500')) {
+    return 'Erro no servidor. Tente novamente mais tarde.';
+  }
+  return error.message;
+};
+
+// No catch:
+setError(getErrorMessage(err));
+```
+
+### Exercício 4: Mostrar Progresso
+
+Adicione um texto mostrando progresso durante o carregamento:
+
+```jsx
+const [loadingProgress, setLoadingProgress] = useState('Iniciando...');
+
+const loadCountries = async () => {
+  try {
+    setLoadingProgress('Conectando à API...');
+    const response = await fetch('...');
+    
+    setLoadingProgress('Recebendo dados...');
+    const data = await response.json();
+    
+    setLoadingProgress('Mapeando países...');
+    const mapped = data.map(...);
+    
+    setLoadingProgress('Finalizando...');
+    setCountries(mapped);
+    
+  } catch (err) {
+    // ...
+  }
+};
+
+// No JSX:
+<p>{loadingProgress}</p>
 ```
 
 ---
 
-## **🔮 Próximo Módulo**
+## 9. Resumo do Módulo
 
-No próximo módulo, criaremos um **Projeto Prático Completo** integrando todos os conceitos aprendidos: componentes, estado, efeitos e APIs para construir uma aplicação robusta!
+### O que aprendemos?
+
+✅ `useEffect` executa código após renderização  
+✅ Array de dependências `[]` faz executar 1x só  
+✅ Try-catch-finally gerencia loading/error/success  
+✅ Renderização condicional com 3 estados  
+✅ Mapeamento de dados de APIs externas  
+✅ Estados inline são mais simples que componentes separados  
+
+### Padrão Completo:
+
+```jsx
+function Component() {
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        const res = await fetch('url');
+        const json = await res.json();
+        setData(json);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    loadData();
+  }, []);
+  
+  if (isLoading) return <Loading />;
+  if (error) return <Error message={error} />;
+  return <Data items={data} />;
+}
+```
 
 ---
 
-## **📚 Resumo do Módulo**
+## 10. Próximos Passos
 
-- ✅ **useEffect**: Hook essencial para efeitos colaterais
-- ✅ **Dependências**: Controlam quando o efeito executa
-- ✅ **Cleanup**: Previne memory leaks e bugs
-- ✅ **APIs**: Carregamento automático de dados
-- ✅ **Hooks Customizados**: Reutilização de lógica
-- ✅ **Boas Práticas**: Padrões para código limpo e performático  
-  
+No **Módulo 11**, vamos aprender:
+
+- Filtros e busca de países
+- useEffect com dependências (reagir a mudanças)
+- Debouncing de inputs
+- Múltiplos filtros simultâneos
+
+Continue praticando! 🚀

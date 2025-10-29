@@ -187,7 +187,7 @@ export default App;
 
 ### 4. CountryGrid para "impressão" de países usando map
 
-```jsx
+```
 // src/components/CountryGrid.jsx
 import CountryCard from './CountryCard';
 
@@ -213,6 +213,7 @@ function CountryGrid({ countries, favorites = [], onToggleFavorite }) {
 
 export default CountryGrid;
 ```
+
 ### 5. CSS Atualizado para Interatividade
 
 ```css
