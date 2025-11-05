@@ -1,0 +1,28 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "name": "Projeto Alpha",
+      "description": "Desenvolvimento do novo sistema de e-commerce.",
+      "budget": 50000
+    },
+    {
+      "id": "2",
+      "name": "Aplicativo Móvel de Fitness",
+      "description": "App para rastreamento de atividades físicas e nutrição.",
+      "budget": 85000
+    },
+    {
+      "id": "2bda",
+      "name": "tese",
+      "description": "tese",
+      "budget": 2332
+    },
+    {
+      "id": "e001",
+      "name": "tstete",
+      "description": "teste",
+      "budget": 3232
+    }
+  ]
+}

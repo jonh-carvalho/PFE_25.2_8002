@@ -641,4 +641,3 @@ No **Módulo 11**, vamos aprender:
 - Debouncing de inputs
 - Múltiplos filtros simultâneos
 
-Continue praticando! 🚀
