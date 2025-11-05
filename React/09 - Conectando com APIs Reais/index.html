@@ -11,6 +11,10 @@
       
       
       
+        <link rel="prev" href="../08%20-%20Gerenciamento%20de%20Estados/">
+      
+      
+        <link rel="next" href="../10_useEffect/">
       
       
       <link rel="icon" href="../../assets/ibmec_icon.png">
@@ -255,10 +259,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../../Disciplina/aulas/" class="md-tabs__link">
           
   
@@ -390,8 +396,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -411,17 +419,20 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -434,7 +445,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Disciplina
@@ -468,8 +479,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -510,11 +523,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -530,7 +543,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             React
@@ -725,10 +738,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../09_HTTP_APIs.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    9 - Http Api
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -739,6 +774,308 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-do-modulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objetivos do Módulo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-a-api-do-ibge-servico-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. A API do IBGE - Serviço de Dados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. A API do IBGE - Serviço de Dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#o-que-e" class="md-nav__link">
+    <span class="md-ellipsis">
+      O que é?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url-da-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      URL da API:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-de-resposta-1-pais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo de Resposta (1 país):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#por-que-esta-api-e-perfeita-para-aprender" class="md-nav__link">
+    <span class="md-ellipsis">
+      Por que esta API é perfeita para aprender?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-nossa-primeira-requisicao-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Nossa Primeira Requisição HTTP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Nossa Primeira Requisição HTTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passo-1-testando-no-navegador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passo 1: Testando no Navegador
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-2-testando-no-console-do-navegador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passo 2: Testando no Console do Navegador
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-integrando-no-react-versao-simples" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Integrando no React - Versão Simples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-adicionando-estados-de-loading-e-erro" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Adicionando Estados de Loading e Erro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-componentes-de-feedback-visual" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Componentes de Feedback Visual
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Componentes de Feedback Visual">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loading-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading Component
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errormessage-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      ErrorMessage Component
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-adaptando-componentes-para-dados-reais" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Adaptando Componentes para Dados Reais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Adaptando Componentes para Dados Reais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estrutura-dos-dados-mapeados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estrutura dos Dados Mapeados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countrycard-adaptado" class="md-nav__link">
+    <span class="md-ellipsis">
+      CountryCard Adaptado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countrygrid-adaptado" class="md-nav__link">
+    <span class="md-ellipsis">
+      CountryGrid Adaptado
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-estilizando-os-estados-visuais" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Estilizando os Estados Visuais
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicios-praticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercícios Práticos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercícios Práticos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-1-teste-no-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercício 1: Teste no Console
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-2-adicione-um-contador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercício 2: Adicione um Contador
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-3-filtre-por-regiao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercício 3: Filtre por Região
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-4-mensagens-personalizadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercício 4: Mensagens Personalizadas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-5-indicador-de-velocidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercício 5: Indicador de Velocidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-6-cache-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercício 6: Cache Local
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-7-exibir-mais-informacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercício 7: Exibir Mais Informações
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-8-comparar-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercício 8: Comparar APIs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
